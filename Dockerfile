@@ -1,24 +1,31 @@
+# Base image with JDK
+FROM openjdk:17-jdk-slim AS build
+
 # Set working directory
 WORKDIR /app
 
-# Copy the Maven wrapper and project source files
-COPY .mvn/ /app/.mvn/
-COPY mvnw mvnw.cmd pom.xml /app/
+# Copy Maven wrapper and project source files
+COPY .mvn/ .mvn
+COPY mvnw mvnw.cmd pom.xml ./
 
 # Grant execution permissions to the Maven wrapper
-RUN chmod +x /app/mvnw
+RUN chmod +x mvnw
 
-# Copy the application source code
-COPY src/ /app/src/
+# Copy application source code
+COPY src/ src/
 
 # Run Maven build
-RUN /app/mvnw package -DskipTests
+RUN ./mvnw package -DskipTests
+
+# Create final image using the built JAR
+FROM openjdk:17-jdk-slim
+WORKDIR /app
 
 # Copy the built JAR file into the final container
 COPY --from=build /app/target/portfolio-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose the application port (make sure this matches your `application.properties` file)
+# Expose the application port (matches `application.properties`)
 EXPOSE 8080
 
 # Command to run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+CMD ["java", "-jar", "app.jar"]
