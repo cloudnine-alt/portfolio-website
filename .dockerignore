@@ -1,0 +1,10 @@
+# Ignore unnecessary files and directories
+.git
+.gitignore
+.mvn
+target/
+output.log
+Dockerfile
+.dockerignore
+.vscode
+
