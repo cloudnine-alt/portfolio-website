@@ -1,100 +1,50 @@
-/* 🎨 Global Styles */
+/* 🎨 Import Modern Fonts */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Orbitron:wght@400;700&family=Exo+2:wght@300;400;700&display=swap');
-/* Darker Metallic Gradient Background */
-/* === 🔥 Modern, Futuristic Developer Portfolio Styles === */
-/* Metallic Animated Background */
+
+/* 🌌 Cyberpunk Dark Theme */
 body {
     font-family: 'JetBrains Mono', 'Orbitron', 'Exo 2', sans-serif;
-    background: linear-gradient(135deg, #0d0d0d, #222, #666, #ccc, #666, #222, #0d0d0d);
-    background-size: 500% 500%;
+    background: linear-gradient(135deg, #0d0d0d, #222, #444, #888, #444, #222, #0d0d0d);
+    background-size: 400% 400%;
     animation: metallicMove 6s linear infinite;
     color: #fff;
     overflow-x: hidden;
-    position: relative;
+    margin: 0;
 }
 
-/* Particles Background */
+/* 🔹 Fix Full-Screen Background */
 #particles-js {
-    position: absolute;
+    position: fixed;
     width: 100%;
-    height: 100vh;
-    z-index: 1;
+    height: 100%;
     top: 0;
     left: 0;
+    z-index: -1;
 }
 
-/* Apply a semi-transparent effect so particles are visible */
-/* Hero Section - Semi-Transparent Glass Effect */
-.hero {
-    position: relative;
-    background: rgba(15, 15, 15, 0.6) !important; /* Dark transparent */
-    backdrop-filter: blur(10px); /* Blurred effect */
-    -webkit-backdrop-filter: blur(10px); /* Safari support */
-    text-align: center;
-    padding: 150px 20px;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.2); /* Subtle edge effect */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    border-radius: 0 0 15px 15px; /* Rounded bottom for smooth transition */
-}
-
-/* Make Text Stand Out */
-.hero h1 {
-    font-size: 3rem;
-    font-family: 'Orbitron', sans-serif;
-    color: #ffffff;
-    text-shadow: 0 0 10px rgba(0, 255, 204, 0.8); /* Neon Glow */
-}
-
-.hero p {
-    font-size: 1.2rem;
-    opacity: 0.8;
-    color: #ddd;
-}
-
-/* Button Enhancements */
-.hero .btn {
-    background: linear-gradient(135deg, #00ffcc, #0088ff);
-    padding: 12px 24px;
-    color: #222;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.3s ease-in-out, transform 0.2s ease;
-}
-
-.hero .btn:hover {
-    background: linear-gradient(135deg, #ffcc00, #ff5500);
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 165, 0, 1);
-}
-
-
-@keyframes glowText {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* 🔹 Navigation Bar */
+/* 🔥 Navigation Bar - Fixed & Responsive */
 nav {
-    background: #111; /* Darker for better contrast */
-    padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 0;
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    transition: background 0.3s ease-in-out;
+    backdrop-filter: blur(8px);
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
 }
 
 nav ul li {
     display: inline;
-    margin: 0 20px;
 }
 
 nav ul li a {
@@ -108,89 +58,123 @@ nav ul li a:hover {
     color: #00ffcc;
 }
 
-/* 🔹 Hero Section */
-.hero {
-    background: linear-gradient(to right, #222, #444);
-    color: white;
-    text-align: center;
-    padding: 150px 20px;
+/* 📱 Mobile-Friendly Navigation */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
 
-/* 🔹 Hero Button */
+/* 🚀 Hero Section */
+.hero {
+    position: relative;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(12px);
+    text-align: center;
+    padding: 180px 20px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* 🏆 Hero Text */
+.hero h1 {
+    font-size: 3rem;
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.9);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+/* 🚀 Hero Button */
 .hero .btn {
-    background: #ffcc00;
+    background: linear-gradient(135deg, #00ffcc, #0088ff);
     padding: 12px 24px;
     color: #222;
     font-weight: bold;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
 }
 
 .hero .btn:hover {
-    background: #e6b800;
+    background: linear-gradient(135deg, #ffcc00, #ff5500);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 165, 0, 1);
 }
 
-/* 🔹 Sections */
-.section {
-    padding: 70px 20px;
+/* 📱 Hero Section - Mobile Optimization */
+@media (max-width: 768px) {
+    .hero {
+        padding: 120px 20px;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+/* 🖼️ Projects Section */
+#projects {
+    padding: 80px 20px;
     text-align: center;
 }
-.hero h1 {
-    display: inline-block;
-}
-/* 🔹 Projects Section */
+
 #projects h2 {
-    text-align: center;
     font-size: 2rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 20px;
 }
 
-#projects h2::after {
-    content: "";
-    display: block;
-    width: 50px;
-    height: 3px;
-    background: #00ffcc;
-    margin: 10px auto;
-}
-
 /* 🌟 Projects Grid */
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
     padding: 60px;
 }
 
-/* 🌟 Project Cards */
+/* 📱 Mobile Fix for Projects */
+@media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+
+/* 🏗️ Project Cards */
 .project-card {
-    background: rgba(255, 255, 255, 0.1); /* Subtle frosted glass effect */
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(10px);
     padding: 20px;
     text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: background 0.4s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 🖤 Dark Metallic Effect on Hover */
+/* 💡 Project Hover Effect */
 .project-card:hover {
-    background: linear-gradient(135deg, #0c0c0c, #1a1a1a, #333);
-    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.15);
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    box-shadow: 0 10px 30px rgba(0, 255, 204, 0.3);
     transform: scale(1.05);
 }
 
-/* 🔹 Adjust Icon Colors */
+/* 🛠️ Project Icons */
 .project-icon {
     font-size: 3rem;
     color: #00ffcc;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
 
+/* 🔥 Icon Hover Effect */
 .project-card:hover .project-icon {
     transform: scale(1.2);
     color: #ffcc00;
@@ -202,7 +186,7 @@ nav ul li a:hover {
     margin: 10px 0;
 }
 
-/* 🔹 Buttons */
+/* 🎯 Project Buttons */
 .btn {
     display: inline-block;
     padding: 12px 18px;
@@ -212,17 +196,25 @@ nav ul li a:hover {
     text-decoration: none;
     font-weight: bold;
     border-radius: 6px;
-    transition: background 0.3s ease-in-out;
+    transition: background 0.3s ease;
 }
 
 .btn:hover {
     background-color: #009977;
 }
 
-/* 🔹 Contact Section */
+/* 📱 Buttons - Mobile Scaling */
+@media (max-width: 768px) {
+    .btn {
+        font-size: 1rem;
+        padding: 10px 15px;
+    }
+}
+
+/* 📧 Contact Section */
 #contact {
     text-align: center;
-    padding: 50px 20px;
+    padding: 60px 20px;
 }
 
 #contact a {
@@ -233,40 +225,17 @@ nav ul li a:hover {
 #contact a:hover {
     color: #ffcc00;
 }
-#particles-js {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    z-index: -1; /* Sends it behind everything */
-    background: transparent; /* Keeps it subtle */
-}
-/* Hover effect for project cards */
-.project-card:hover {
-    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-    box-shadow: 0 10px 30px rgba(0, 255, 204, 0.3);
-    transform: scale(1.07);
+
+/* 🚀 Scroll Smoothly */
+html {
+    scroll-behavior: smooth;
 }
 
-/* Icon styling */
-.project-icon {
-    font-size: 3rem;
-    color: #00ffcc;
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-/* Icon color change and scaling on hover */
-.project-card:hover .project-icon {
-    color: #ffcc00;
-    transform: scale(1.2);
-}
-.project-icon {
-    display: inline-block;
-    font-size: 3rem;
-    color: #00ffcc;
-    margin-bottom: 10px;
-    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+/* 🔥 Subtle Animations */
+@keyframes metallicMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 /* Ensure content scales for smaller screens */
 .container {
