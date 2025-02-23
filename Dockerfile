@@ -1,14 +1,31 @@
-# Use OpenJDK 17 as the base image
-FROM openjdk:17-jdk-slim
+# Use OpenJDK as the base image
+FROM openjdk:17-jdk-slim AS build
 
-# Set the working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy the built JAR file into the container
-COPY target/portfolio-website-0.0.1-SNAPSHOT.jar app.jar
+# Copy Maven wrapper and source code
+COPY .mvn/ .mvn
+COPY mvnw pom.xml ./
 
-# Expose port 8080 (or your configured port)
+# Build dependencies first (this caches them)
+RUN chmod +x mvnw && ./mvnw dependency:go-offline
+
+# Copy the rest of the app source and build it
+COPY src/ src/
+RUN ./mvnw package -DskipTests
+
+# ---- Runtime Image ----
+FROM openjdk:17-jdk-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy the built JAR from the first stage
+COPY --from=build /app/target/portfolio-0.0.1-SNAPSHOT.jar app.jar
+
+# Expose the application port (default Spring Boot is 8080)
 EXPOSE 8080
 
-# Run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run the JAR file
+CMD ["java", "-jar", "app.jar"]
