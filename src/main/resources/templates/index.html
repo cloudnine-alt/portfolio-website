@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robin Converse | Portfolio</title>
+    <!-- Modern Developer Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Orbitron:wght@400;700&family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        .hero h1 {
+            font-size: 2.5rem;
+            font-family: 'Orbitron', sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 2px solid #00ffcc;
+            width: 0;
+            animation: typing 3s steps(30, end) forwards, blink 0.7s infinite;
+        }
+    
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+    
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+    </style>
+
+</head>
+<body>
+<!-- Particle Background -->
+<div id="particles-js"></div>
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+<header class="hero">
+    <div class="container">
+        <h1 id="typing-text">Hi, I'm <span class="highlight">Robin Converse</span></h1>
+        <p>Web Developer | Blockchain Enthusiast | Tech Innovator</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </div>
+</header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a passionate developer with experience in Java, Spring Boot, and blockchain technology.</p>
+        </div>
+    </section>
+    <!-- PROJECTS SECTION -->
+<!-- PROJECTS SECTION -->
+<section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+        
+        <!-- To-Do App -->
+        <div class="project-card">
+            <i class="fa-solid fa-list-check project-icon"></i>
+            <h3>To-Do App</h3>
+            <p>A simple task management app built with JavaScript & React.</p>
+            <a href="https://github.com/cloudnine-alt/todo-app" target="_blank" class="btn">View Project</a>
+        </div>
+
+        <!-- XRPL Project -->
+        <div class="project-card">
+            <i class="fa-brands fa-bitcoin project-icon"></i>
+            <h3>XRPL Project</h3>
+            <p>A blockchain-based project utilizing the XRP Ledger (XRPL).</p>
+            <a href="https://github.com/cloudnine-alt/xrpl-proj1" target="_blank" class="btn">View Project</a>
+        </div>
+
+        <!-- Portfolio Website -->
+        <div class="project-card">
+            <i class="fa-solid fa-code project-icon"></i>
+            <h3>Portfolio Website</h3>
+            <p>My personal developer portfolio showcasing my projects and skills.</p>
+            <a href="#" class="btn">You're Here!</a>
+        </div>
+
+    </div>
+</section>
+
+    
+    
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:robin@example.com">robin@example.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/robin-rfc/" target="_blank">linkedin.com/in/robin-rfc</a></p>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": {
+                    "value": 150, /* Adjust particle density */
+                    "density": { "enable": true, "value_area": 800 }
+                },
+                "color": { "value": "#00ffcc" }, /* Cyberpunk neon color */
+                "shape": {
+                    "type": "circle",
+                    "stroke": { "width": 0, "color": "#000000" },
+                    "polygon": { "nb_sides": 6 }
+                },
+                "opacity": {
+                    "value": 1, /* Adjust transparency */
+                    "random": false,
+                    "anim": { "enable": false }
+                },
+                "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": { "enable": false }
+                },
+                "line_linked": {
+                    "enable": true, /* Lines connecting particles */
+                    "distance": 150,
+                    "color": "#00ffcc",
+                    "opacity": 0.8,
+                    "width": 2
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 0.8, /* Adjust speed */
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "repulse" },
+                    "onclick": { "enable": true, "mode": "push" },
+                    "resize": true
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+    
+</body>
+</html>
