@@ -1,4 +1,4 @@
-HELP.md
+.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -11,7 +11,7 @@ target/
 .project
 .settings
 .springBeans
-.sts4-cache
+.sts4-cacheHELP
 
 ### IntelliJ IDEA ###
 .idea
@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+# Allow Maven wrapper files
+!.mvn/
+!.mvn/wrapper/
+!.mvn/wrapper/maven-wrapper.jar
