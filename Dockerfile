@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim AS build
 WORKDIR /app
 
 # Copy Maven wrapper and source code
-COPY .mvn/ .mvn
+COPY .mvn /app/.mvn
 COPY mvnw pom.xml ./
 
 # Build dependencies first (this caches them)
